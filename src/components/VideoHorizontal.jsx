@@ -12,7 +12,7 @@ const VideoHorizontal = () => {
         <div className="grid grid-cols-12 gap-2 mb-3 cursor-pointer">
             <div className="col-span-5 relative text-center">
                 <img
-                    src="https://i.ytimg.com/vi/ZtmIq0lVMeI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCo1ibGBuq3vtQSPvmAfiyU-S-L9Q"
+                    src="https://i.ytimg.com/vi/seqes2QjOys/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCrppiiU7f9IcpiJZtjyFmkVgTKVw"
                     alt=""
                     className="w-full h-full"
                 />
@@ -20,7 +20,7 @@ const VideoHorizontal = () => {
             </div>
             <div className="col-span-7 p-0">
                 <p className="format-string text-sm tracking-wide font-medium">
-                    Fully Functional YouTube Clone | React | Redux | Firebase | YouTube API
+                    Study With Me 📚 Lofi hip hop mix ✍️ Study Music, Coding Beats | Relaxing Music
                 </p>
                 <p className="text-xs my-0.5">Le Dinh Vu</p>
                 <div className="flex items-center text-xs">
