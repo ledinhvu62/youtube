@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AiFillEye } from 'react-icons/ai'
-import request from '../api'
 import moment from 'moment'
 import numeral from 'numeral'
+
+import request from '../api'
 
 const Video = ({ video }) => {
     const {

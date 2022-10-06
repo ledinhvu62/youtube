@@ -14,7 +14,8 @@ export const getCommentsOfVideoById = createAsyncThunk(
             const { data } = await request('/commentThreads', {
                 params: {
                     part: 'snippet',
-                    videoId: id
+                    videoId: id,
+                    maxResults: 50
                 }
             })
             return data.items

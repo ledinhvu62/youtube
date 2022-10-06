@@ -7,14 +7,17 @@ import Comments from '../components/Comments'
 import VideoHorizontal from '../components/VideoHorizontal'
 
 import { getVideoById } from '../redux/videos/selectedVideoSlice'
+import { getRelatedVideos } from '../redux/videos/relatedVideoSlice'
 
 const WatchScreen = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const { video } = useSelector(state => state.selectedVideo)
+    const { videos } = useSelector(state => state.relatedVideo)
 
     useEffect(() => {
         dispatch(getVideoById(id))
+        dispatch(getRelatedVideos(id))
     }, [dispatch, id])
 
     useEffect(() => {
@@ -46,9 +49,11 @@ const WatchScreen = () => {
             </div>
             <div>
                 {
-                    [...Array(10)].map((item, i) => (
-                        <VideoHorizontal key={i} />
-                    ))
+                    videos
+                        ?.filter(video => video.snippet)
+                        .map(video => (
+                            <VideoHorizontal video={video} key={video.id.videoId} />
+                        ))
                 }
             </div>
         </div>
