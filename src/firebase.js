@@ -1,6 +1,15 @@
 import firebase from 'firebase/compat/app';
 import "firebase/compat/auth"
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDGe80ek36c7vAjDD9rX9utJZhNMpNW5nk",
+  authDomain: "clone-aa236.firebaseapp.com",
+  projectId: "clone-aa236",
+  storageBucket: "clone-aa236.appspot.com",
+  messagingSenderId: "995201836155",
+  appId: "1:995201836155:web:74f8867a18568059fdaede"
+};
+
 // const firebaseConfig = {
 //     apiKey: "AIzaSyAqVe1WifyviIQ72ndJjcKtTj3mwvgfIwk",
 //     authDomain: "ytb-62.firebaseapp.com",
@@ -37,14 +46,14 @@ import "firebase/compat/auth"
   //   appId: "1:556498785161:web:b81c7d6a59a5be87404758"
   // };
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyB2C_qIgJ8pNviv2Qj-WP8rKk4yupqYroM",
-    authDomain: "dutup-5b4ff.firebaseapp.com",
-    projectId: "dutup-5b4ff",
-    storageBucket: "dutup-5b4ff.appspot.com",
-    messagingSenderId: "1083286774746",
-    appId: "1:1083286774746:web:0d319e53d7d547e98d16e3"
-  };
+  // const firebaseConfig = {
+  //   apiKey: "AIzaSyB2C_qIgJ8pNviv2Qj-WP8rKk4yupqYroM",
+  //   authDomain: "dutup-5b4ff.firebaseapp.com",
+  //   projectId: "dutup-5b4ff",
+  //   storageBucket: "dutup-5b4ff.appspot.com",
+  //   messagingSenderId: "1083286774746",
+  //   appId: "1:1083286774746:web:0d319e53d7d547e98d16e3"
+  // };
   
   // const firebaseConfig = {
   //   apiKey: "AIzaSyDDCyB6mYABG5IcXLL5S96MYplTelzEHD8",

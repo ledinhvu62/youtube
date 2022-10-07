@@ -6,7 +6,7 @@ import numeral from 'numeral'
 
 import request from '../api'
 
-const VideoHorizontal = ({ video, searchScreen }) => {
+const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
     const {
         id,
         snippet: {
@@ -20,7 +20,7 @@ const VideoHorizontal = ({ video, searchScreen }) => {
         }
     } = video
 
-    const isVideo = !(id.kind === 'youtube#channel')
+    const isVideo = !(id.kind === 'youtube#channel' || subScreen)
 
     const [views, setViews] = useState(null)
     const [duration, setDuration] = useState(null)
@@ -75,10 +75,10 @@ const VideoHorizontal = ({ video, searchScreen }) => {
 
     return (
         <div
-            className={`grid grid-cols-12 gap-2 ${searchScreen ? 'mb-5' : 'mb-3'} cursor-pointer`}
+            className={`grid grid-cols-12 gap-2 ${searchScreen || subScreen ? 'mb-5' : 'mb-3'} cursor-pointer`}
             onClick={handleClick}
         >
-            <div className={`${searchScreen ? 'col-span-4' : 'col-span-5'} relative text-center`}>
+            <div className={`${searchScreen || subScreen ? 'col-span-4' : 'col-span-5'} relative text-center`}>
                 <img
                     src={medium.url}
                     alt=""
@@ -90,8 +90,8 @@ const VideoHorizontal = ({ video, searchScreen }) => {
                     )
                 }
             </div>
-            <div className={`${searchScreen ? 'col-span-8' : 'col-span-7'} p-0`}>
-                <h3 className={`format-string tracking-wide font-medium ${searchScreen ? 'text-lg' : 'text-sm'}`}>{title}</h3>
+            <div className={`${searchScreen || subScreen ? 'col-span-8' : 'col-span-7'} p-0 ${isVideo ? '' : 'flex flex-col justify-center'}`}>
+                <h3 className={`format-string font-medium ${searchScreen || subScreen ? 'text-lg' : 'text-sm'}`}>{title}</h3>
                 {
                     isVideo ? (
                         <>
@@ -111,8 +111,8 @@ const VideoHorizontal = ({ video, searchScreen }) => {
                     )
                 }
                 {
-                    searchScreen && (
-                        <p className="text-xs">{description}</p>
+                    (searchScreen || subScreen) && (
+                        <p className="format-string text-xs">{description}</p>
                     )
                 }
             </div>

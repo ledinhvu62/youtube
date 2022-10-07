@@ -19,8 +19,12 @@ code {
 }
 
 @layer components {
-    .sidebar-item {
-        @apply flex items-center px-6 cursor-pointer h-full justify-center lg:justify-start
+    .sidebar-item, .sidebar-item-link {
+        @apply flex items-center cursor-pointer h-full justify-center lg:justify-start
+    }
+
+    .sidebar-item-link {
+        @apply px-6 w-full
     }
 
     .sidebar-item:hover {

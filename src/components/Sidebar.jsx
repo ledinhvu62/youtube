@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { MdOutlineSubscriptions, MdExitToApp, MdOutlineHistory, MdOutlineVideoLibrary, MdHome, MdOutlineExplore } from 'react-icons/md'
 import { TiFlashOutline } from 'react-icons/ti'
 import { RiVideoLine, RiThumbUpLine } from 'react-icons/ri'
@@ -9,7 +10,7 @@ import { logout } from '../redux/auth/authSlice'
 
 const Sidebar = ({ showSidebar, toggleSidebar }) => {
     const dispatch = useDispatch()
-    
+
     const handleLogout = () => {
         dispatch(logout())
     }
@@ -20,44 +21,89 @@ const Sidebar = ({ showSidebar, toggleSidebar }) => {
             onClick={() => toggleSidebar()}
         >
             <li className="sidebar-item">
-                <MdHome size={23} />
-                <span className="sidebar-text">Home</span>
+                <Link
+                    to="/"
+                    className="sidebar-item-link"
+                >
+                    <MdHome size={23} />
+                    <span className="sidebar-text">Home</span>
+                </Link>
             </li>
             <li className="sidebar-item">
-                <MdOutlineExplore size={23} />
-                <span className="sidebar-text">Explore</span>
+                <Link
+                    to="/"
+                    className="sidebar-item-link"
+                >
+                    <MdOutlineExplore size={23} />
+                    <span className="sidebar-text">Explore</span>
+                </Link>
             </li>
             <li className="sidebar-item">
-                <TiFlashOutline size={23} />
-                <span className="sidebar-text">Shorts</span>
+                <Link
+                    to="/"
+                    className="sidebar-item-link"
+                >
+                    <TiFlashOutline size={23} />
+                    <span className="sidebar-text">Shorts</span>
+                </Link>
             </li>
             <li className="sidebar-item">
-                <MdOutlineSubscriptions size={23} />
-                <span className="sidebar-text">Subscriptions</span>
+                <Link
+                    to="/feed/subscriptions"
+                    className="sidebar-item-link"
+                >
+                    <MdOutlineSubscriptions size={23} />
+                    <span className="sidebar-text">Subscriptions</span>
+                </Link>
             </li>
             <li className="sidebar-item">
-                <MdOutlineVideoLibrary size={23} />
-                <span className="sidebar-text">Library</span>
+                <Link
+                    to="/"
+                    className="sidebar-item-link"
+                >
+                    <MdOutlineVideoLibrary size={23} />
+                    <span className="sidebar-text">Library</span>
+                </Link>
             </li>
             <li className="sidebar-item">
-                <MdOutlineHistory size={23} />
-                <span className="sidebar-text">History</span>
+                <Link
+                    to="/"
+                    className="sidebar-item-link"
+                >
+                    <MdOutlineHistory size={23} />
+                    <span className="sidebar-text">History</span>
+                </Link>
             </li>
             <li className="sidebar-item">
-                <RiVideoLine size={23} />
-                <span className="sidebar-text">Your videos</span>
+                <Link
+                    to="/"
+                    className="sidebar-item-link"
+                >
+                    <RiVideoLine size={23} />
+                    <span className="sidebar-text">Your videos</span>
+                </Link>
             </li>
             <li className="sidebar-item">
-                <HiOutlineClock size={23} />
-                <span className="sidebar-text">Watch later</span>
+                <Link
+                    to="/"
+                    className="sidebar-item-link"
+                >
+                    <HiOutlineClock size={23} />
+                    <span className="sidebar-text">Watch later</span>
+                </Link>
             </li>
             <li className="sidebar-item">
-                <RiThumbUpLine size={23} />
-                <span className="sidebar-text">Liked videos</span>
+                <Link
+                    to="/"
+                    className="sidebar-item-link"
+                >
+                    <RiThumbUpLine size={23} />
+                    <span className="sidebar-text">Liked videos</span>
+                </Link>
             </li>
 
             <li
-                className="mt-10 sidebar-item"
+                className="mt-10 px-6 sidebar-item"
                 onClick={handleLogout}
             >
                 <MdExitToApp size={23} />

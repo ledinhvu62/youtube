@@ -22,7 +22,7 @@ const SearchScreen = () => {
     }, [videos])
 
     return (
-        <div className="bg-[#0000000d]">
+        <div className="p-16">
             {
                 videos?.map(video => (
                     <VideoHorizontal

@@ -37,7 +37,7 @@ const HomeScreen = () => {
                     <div className='spinner-border text-danger d-block mx-auto'></div>
                 }
             >
-                <div className="grid grid-cols-3 mt-[calc(10vh_-_8px)] bg-[#0000000d] lg:grid-cols-4">
+                <div className="grid grid-cols-3 mt-[calc(10vh_-_8px)] lg:grid-cols-4">
                     {
                         videos.map((video, index) => (
                             // Fix bug

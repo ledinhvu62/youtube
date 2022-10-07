@@ -10,6 +10,7 @@ import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import WatchScreen from "./screens/WatchScreen";
 import SearchScreen from "./screens/SearchScreen";
+import SubscriptionsScreen from "./screens/SubscriptionsScreen";
 
 const Layout = ({ children }) => {
     const [showSidebar, setShowSidebar] = useState(false)
@@ -21,7 +22,7 @@ const Layout = ({ children }) => {
             <Header toggleSidebar={toggleSidebar} />
             <div className="flex mt-[10vh]">
                 <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
-                <div className="container mx-auto">
+                <div className="container mx-auto bg-[#0000000d]">
                     {children}
                 </div>
             </div>
@@ -61,6 +62,13 @@ const App = () => {
             <Route path="/watch/:id" element={
                 <Layout>
                     <WatchScreen />
+                </Layout>
+            }>
+            </Route>
+
+            <Route path="/feed/subscriptions" element={
+                <Layout>
+                    <SubscriptionsScreen />
                 </Layout>
             }>
             </Route>

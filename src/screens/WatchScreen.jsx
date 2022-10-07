@@ -25,7 +25,7 @@ const WatchScreen = () => {
     }, [video])
 
     return (
-        <div className="grid grid-cols-3 gap-6 bg-[#0000000d]">
+        <div className="grid grid-cols-3 gap-6 px-16 py-6">
             <div className="col-span-2">
                 <div className="h-[60vh] w-full mb-8">
                     <iframe
