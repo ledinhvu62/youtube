@@ -5,6 +5,8 @@ import moment from 'moment'
 import numeral from 'numeral'
 
 import request from '../api'
+import { useDispatch, useSelector } from 'react-redux'
+import { getChannelDetails } from '../redux/channel/channelDetailsSlice'
 
 const VideoHorizontal = ({ video, searchScreen }) => {
     const {
@@ -54,6 +56,18 @@ const VideoHorizontal = ({ video, searchScreen }) => {
             : navigate(`/channel/${_channelId}`)
     }
 
+    //
+
+    const {
+        statistics: channelStatistics,
+    } = useSelector(state => state.channelDetails.channel)
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getChannelDetails(_channelId))
+    }, [dispatch, _channelId])
+
     return (
         <div
             className="grid grid-cols-12 gap-2 mb-3 cursor-pointer"
@@ -63,7 +77,7 @@ const VideoHorizontal = ({ video, searchScreen }) => {
                 <img
                     src={medium.url}
                     alt=""
-                    className="w-full h-full"
+                    className={`${isVideo ? "w-full h-full" : "w-36 h-36 rounded-full mx-auto"}`}
                 />
                 {
                     isVideo && (
@@ -73,16 +87,29 @@ const VideoHorizontal = ({ video, searchScreen }) => {
             </div>
             <div className={`${searchScreen ? "col-span-8" : "col-span-7"} p-0`}>
                 <p className={`format-string tracking-wide font-medium ${searchScreen ? "text-lg" : "text-sm"}`}>{title}</p>
-                <p className={`text-xs ${searchScreen ? "my-2" : "my-0.5"}`}>{channelTitle}</p>
-                <div className="flex items-center text-xs mb-2">
-                    <span className="flex items-center">
-                        <AiFillEye className="mr-1" /> {numeral(views).format('0.a')} views
-                    </span>
-                    <span className="ml-3">{moment(publishedAt).fromNow()}</span>
-                </div>
-                {(searchScreen) && (
-                    <p className="">{description}</p>
-                )}
+                {
+                    isVideo ? (
+                        <>
+                            <p className={`text-xs ${searchScreen ? "my-2" : "my-0.5"}`}>{channelTitle}</p>
+                            <div className="flex items-center text-xs mb-2">
+                                <span className="flex items-center">
+                                    <AiFillEye className="mr-1" /> {numeral(views).format('0.a')} views
+                                </span>
+                                <span className="ml-3">{moment(publishedAt).fromNow()}</span>
+                            </div>
+                        </>
+                    ) : (
+                        <div className="flex items-center text-xs mb-2">
+                            <span>{numeral(channelStatistics?.subscriberCount).format('0.a')} subscribers</span>
+                            <span className="ml-3">{channelStatistics?.videoCount} videos</span>
+                        </div>
+                    )
+                }
+                {
+                    searchScreen && (
+                        <p className="text-xs">{description}</p>
+                    )
+                }
             </div>
         </div>
     )

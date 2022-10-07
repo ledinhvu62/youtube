@@ -17,7 +17,7 @@ const SearchScreen = () => {
     const { videos } = useSelector(state => state.searchedVideos)
 
     return (
-        <div>
+        <div className="bg-[#0000000d]">
             {
                 videos?.map(video => (
                     <VideoHorizontal
