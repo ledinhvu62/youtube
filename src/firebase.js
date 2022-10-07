@@ -1,23 +1,23 @@
 import firebase from 'firebase/compat/app';
 import "firebase/compat/auth"
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAqVe1WifyviIQ72ndJjcKtTj3mwvgfIwk",
-    authDomain: "ytb-62.firebaseapp.com",
-    projectId: "ytb-62",
-    storageBucket: "ytb-62.appspot.com",
-    messagingSenderId: "234269527645",
-    appId: "1:234269527645:web:fdb67b71c6b345499547b4"
-}
-
 // const firebaseConfig = {
-//     apiKey: "AIzaSyCvuJej25d_-vSAtdP8AFtuNIEtTPvT4yI",
-//     authDomain: "vntube-123456.firebaseapp.com",
-//     projectId: "vntube-123456",
-//     storageBucket: "vntube-123456.appspot.com",
-//     messagingSenderId: "779016707538",
-//     appId: "1:779016707538:web:0618647a8bb0e22470fc0b"
-//   };
+//     apiKey: "AIzaSyAqVe1WifyviIQ72ndJjcKtTj3mwvgfIwk",
+//     authDomain: "ytb-62.firebaseapp.com",
+//     projectId: "ytb-62",
+//     storageBucket: "ytb-62.appspot.com",
+//     messagingSenderId: "234269527645",
+//     appId: "1:234269527645:web:fdb67b71c6b345499547b4"
+// }
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCvuJej25d_-vSAtdP8AFtuNIEtTPvT4yI",
+    authDomain: "vntube-123456.firebaseapp.com",
+    projectId: "vntube-123456",
+    storageBucket: "vntube-123456.appspot.com",
+    messagingSenderId: "779016707538",
+    appId: "1:779016707538:web:0618647a8bb0e22470fc0b"
+  };
 
   // const firebaseConfig = {
   //   apiKey: "AIzaSyAn5KR21i6IADlubXbyk3yYWIA_nGhDZVU",

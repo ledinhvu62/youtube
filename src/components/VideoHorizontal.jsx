@@ -59,7 +59,7 @@ const VideoHorizontal = ({ video, searchScreen }) => {
             className="grid grid-cols-12 gap-2 mb-3 cursor-pointer"
             onClick={handleClick}
         >
-            <div className="col-span-5 relative text-center">
+            <div className={`${searchScreen ? "col-span-4" : "col-span-5"} relative text-center`}>
                 <img
                     src={medium.url}
                     alt=""
@@ -71,18 +71,18 @@ const VideoHorizontal = ({ video, searchScreen }) => {
                     )
                 }
             </div>
-            <div className="col-span-7 p-0">
-                <p className="format-string text-sm tracking-wide font-medium">{title}</p>
-                <p className="text-xs my-0.5">{channelTitle}</p>
-                <div className="flex items-center text-xs">
+            <div className={`${searchScreen ? "col-span-8" : "col-span-7"} p-0`}>
+                <p className={`format-string tracking-wide font-medium ${searchScreen ? "text-lg" : "text-sm"}`}>{title}</p>
+                <p className={`text-xs ${searchScreen ? "my-2" : "my-0.5"}`}>{channelTitle}</p>
+                <div className="flex items-center text-xs mb-2">
                     <span className="flex items-center">
                         <AiFillEye className="mr-1" /> {numeral(views).format('0.a')} views
                     </span>
                     <span className="ml-3">{moment(publishedAt).fromNow()}</span>
-                    {(searchScreen) && (
-                        <p className='mt-1 videoHorizontal__desc'>{description}</p>
-                    )}
                 </div>
+                {(searchScreen) && (
+                    <p className="">{description}</p>
+                )}
             </div>
         </div>
     )
