@@ -28,23 +28,23 @@ import "firebase/compat/auth"
   //   appId: "1:214414617663:web:713f9c8d57821818c8dc8a"
   // };
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDOQ72rUVfOTOVWjMyNuZF_CyeT0ZezVio",
-    authDomain: "vietube-6eccb.firebaseapp.com",
-    projectId: "vietube-6eccb",
-    storageBucket: "vietube-6eccb.appspot.com",
-    messagingSenderId: "556498785161",
-    appId: "1:556498785161:web:b81c7d6a59a5be87404758"
-  };
-
   // const firebaseConfig = {
-  //   apiKey: "AIzaSyB2C_qIgJ8pNviv2Qj-WP8rKk4yupqYroM",
-  //   authDomain: "dutup-5b4ff.firebaseapp.com",
-  //   projectId: "dutup-5b4ff",
-  //   storageBucket: "dutup-5b4ff.appspot.com",
-  //   messagingSenderId: "1083286774746",
-  //   appId: "1:1083286774746:web:0d319e53d7d547e98d16e3"
+  //   apiKey: "AIzaSyDOQ72rUVfOTOVWjMyNuZF_CyeT0ZezVio",
+  //   authDomain: "vietube-6eccb.firebaseapp.com",
+  //   projectId: "vietube-6eccb",
+  //   storageBucket: "vietube-6eccb.appspot.com",
+  //   messagingSenderId: "556498785161",
+  //   appId: "1:556498785161:web:b81c7d6a59a5be87404758"
   // };
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB2C_qIgJ8pNviv2Qj-WP8rKk4yupqYroM",
+    authDomain: "dutup-5b4ff.firebaseapp.com",
+    projectId: "dutup-5b4ff",
+    storageBucket: "dutup-5b4ff.appspot.com",
+    messagingSenderId: "1083286774746",
+    appId: "1:1083286774746:web:0d319e53d7d547e98d16e3"
+  };
   
   // const firebaseConfig = {
   //   apiKey: "AIzaSyDDCyB6mYABG5IcXLL5S96MYplTelzEHD8",

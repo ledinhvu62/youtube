@@ -38,15 +38,34 @@ const VideoHorizontal = ({ video, searchScreen }) => {
             setDuration(items[0].contentDetails.duration)
             setViews(items[0].statistics.viewCount)
         }
-        getVideoDetails()
-    }, [id])
+        isVideo && getVideoDetails()
+    }, [id, isVideo])
 
     const seconds = moment.duration(duration).asSeconds()
     const _duration = moment.utc(seconds * 1000).format('mm:ss')
 
-    const navigate = useNavigate()
+    const [subscriberCount, setSubscriberCount] = useState(null)
+    const [videoCount, setVideoCount] = useState(null)
 
     const _channelId = resourceId?.channelId || channelId
+
+    useEffect(() => {
+        const getChannelDetails = async () => {
+            const {
+                data: { items }
+            } = await request('/channels', {
+                params: {
+                    part: 'statistics',
+                    id: _channelId
+                }
+            })
+            setSubscriberCount(items[0].statistics.subscriberCount)
+            setVideoCount(items[0].statistics.videoCount)
+        }
+        isVideo || getChannelDetails()
+    }, [_channelId, isVideo])
+
+    const navigate = useNavigate()
 
     const handleClick = () => {
         isVideo
@@ -54,37 +73,16 @@ const VideoHorizontal = ({ video, searchScreen }) => {
             : navigate(`/channel/${_channelId}`)
     }
 
-    //
-
-    const [subscriberCount, setSubscriberCount] = useState(null)
-    const [videoCount, setVideoCount] = useState(null)
-
-    useEffect(() => {
-        const getChannelDetails = async () => {
-           const {
-              data: { items },
-           } = await request('/channels', {
-              params: {
-                 part: 'statistics',
-                 id: _channelId,
-              },
-           })
-           setSubscriberCount(items[0].statistics?.subscriberCount)
-           setVideoCount(items[0].statistics?.videoCount)
-        }
-        getChannelDetails()
-    }, [_channelId])
-
     return (
         <div
-            className="grid grid-cols-12 gap-2 mb-3 cursor-pointer"
+            className={`grid grid-cols-12 gap-2 ${searchScreen ? 'mb-5' : 'mb-3'} cursor-pointer`}
             onClick={handleClick}
         >
-            <div className={`${searchScreen ? "col-span-4" : "col-span-5"} relative text-center`}>
+            <div className={`${searchScreen ? 'col-span-4' : 'col-span-5'} relative text-center`}>
                 <img
                     src={medium.url}
                     alt=""
-                    className={`${isVideo ? "w-full h-full" : "w-36 h-36 rounded-full mx-auto"}`}
+                    className={`${isVideo ? 'w-full h-full' : 'w-36 h-36 rounded-full mx-auto'}`}
                 />
                 {
                     isVideo && (
@@ -92,12 +90,12 @@ const VideoHorizontal = ({ video, searchScreen }) => {
                     )
                 }
             </div>
-            <div className={`${searchScreen ? "col-span-8" : "col-span-7"} p-0`}>
-                <p className={`format-string tracking-wide font-medium ${searchScreen ? "text-lg" : "text-sm"}`}>{title}</p>
+            <div className={`${searchScreen ? 'col-span-8' : 'col-span-7'} p-0`}>
+                <h3 className={`format-string tracking-wide font-medium ${searchScreen ? 'text-lg' : 'text-sm'}`}>{title}</h3>
                 {
                     isVideo ? (
                         <>
-                            <p className={`text-xs ${searchScreen ? "my-2" : "my-0.5"}`}>{channelTitle}</p>
+                            <h4 className={`text-xs ${searchScreen ? 'my-2' : 'my-0.5'}`}>{channelTitle}</h4>
                             <div className="flex items-center text-xs mb-2">
                                 <span className="flex items-center">
                                     <AiFillEye className="mr-1" /> {numeral(views).format('0.a')} views
@@ -106,7 +104,7 @@ const VideoHorizontal = ({ video, searchScreen }) => {
                             </div>
                         </>
                     ) : (
-                        <div className="flex items-center text-xs mb-2">
+                        <div className="flex items-center text-xs my-2">
                             <span>{numeral(subscriberCount).format('0.a')} subscribers</span>
                             <span className="ml-3">{videoCount} videos</span>
                         </div>

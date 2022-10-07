@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { FaBars } from 'react-icons/fa'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { RiVideoAddLine } from 'react-icons/ri'
@@ -8,14 +8,17 @@ import { MdOutlineNotificationsNone } from 'react-icons/md'
 
 import logo from '../assets/img/logo.png'
 
+import { set } from '../redux/search/keywordSearchSlice'
+
 const Header = ({ toggleSidebar }) => {
     const user = useSelector(state => state.auth?.user)
-    const [input, setInput] = useState('')
+    const keyword = useSelector(state => state.keywordSearch.value)
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
-        navigate(`/search/${input}`)
+        navigate('/results')
     }
 
     return (
@@ -40,8 +43,8 @@ const Header = ({ toggleSidebar }) => {
                     type="text"
                     placeholder="Search"
                     className="w-full border-none font-medium bg-transparent p-1 text-textColor focus:outline-none"
-                    value={input}
-                    onChange={e => setInput(e.target.value)}
+                    value={keyword}
+                    onChange={e => dispatch(set(e.target.value))}
                 />
                 <button
                     type="submit"

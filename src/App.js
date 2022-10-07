@@ -51,7 +51,7 @@ const App = () => {
             <Route path="/auth" element={<LoginScreen />}>
             </Route>
 
-            <Route path="/search/:query" element={
+            <Route path="/results" element={
                 <Layout>
                     <SearchScreen />
                 </Layout>
