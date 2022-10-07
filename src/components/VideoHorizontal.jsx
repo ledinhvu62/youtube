@@ -6,7 +6,7 @@ import numeral from 'numeral'
 
 import request from '../api'
 
-const VideoHorizontal = ({ video }) => {
+const VideoHorizontal = ({ video, searchScreen }) => {
     const {
         id,
         snippet: {
@@ -19,6 +19,8 @@ const VideoHorizontal = ({ video }) => {
             resourceId
         }
     } = video
+
+    const isVideo = !(id.kind === 'youtube#channel')
 
     const [views, setViews] = useState(null)
     const [duration, setDuration] = useState(null)
@@ -44,8 +46,12 @@ const VideoHorizontal = ({ video }) => {
 
     const navigate = useNavigate()
 
+    const _channelId = resourceId?.channelId || channelId
+
     const handleClick = () => {
-        navigate(`/watch/${id.videoId}`)
+        isVideo
+            ? navigate(`/watch/${id.videoId}`)
+            : navigate(`/channel/${_channelId}`)
     }
 
     return (
@@ -59,7 +65,11 @@ const VideoHorizontal = ({ video }) => {
                     alt=""
                     className="w-full h-full"
                 />
-                <span className="absolute bottom-1 right-1 p-0.5 font-medium text-xs text-white bg-[#080808ec] rounded">{_duration}</span>
+                {
+                    isVideo && (
+                        <span className="absolute bottom-1 right-1 p-0.5 font-medium text-xs text-white bg-[#080808ec] rounded">{_duration}</span>
+                    )
+                }
             </div>
             <div className="col-span-7 p-0">
                 <p className="format-string text-sm tracking-wide font-medium">{title}</p>
@@ -69,6 +79,9 @@ const VideoHorizontal = ({ video }) => {
                         <AiFillEye className="mr-1" /> {numeral(views).format('0.a')} views
                     </span>
                     <span className="ml-3">{moment(publishedAt).fromNow()}</span>
+                    {(searchScreen) && (
+                        <p className='mt-1 videoHorizontal__desc'>{description}</p>
+                    )}
                 </div>
             </div>
         </div>

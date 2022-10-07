@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { FaBars } from 'react-icons/fa'
 import { AiOutlineSearch } from 'react-icons/ai'
@@ -9,6 +10,13 @@ import logo from '../assets/img/logo.png'
 
 const Header = ({ toggleSidebar }) => {
     const user = useSelector(state => state.auth?.user)
+    const [input, setInput] = useState('')
+    const navigate = useNavigate()
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        navigate(`/search/${input}`)
+    }
 
     return (
         <div className="flex justify-between items-center p-4 h-[10vh] w-full fixed top-0 z-[999] bg-white border-solid border-b-2 sm:py-4 sm:px-12">
@@ -17,18 +25,23 @@ const Header = ({ toggleSidebar }) => {
                 size={23}
                 onClick={() => toggleSidebar()}
             />
-            
+
             <img
                 src={logo}
                 alt="logo"
                 className="w-20 h-20 object-contain hidden sm:block"
             />
-            
-            <form action="" className="flex-1 items-center flex p-0.5 mx-4 my-0 rounded border-2 border-solid sm:flex-[0.6]">
+
+            <form
+                className="flex-1 items-center flex p-0.5 mx-4 my-0 rounded border-2 border-solid sm:flex-[0.6]"
+                onSubmit={handleSubmit}
+            >
                 <input
                     type="text"
                     placeholder="Search"
                     className="w-full border-none font-medium bg-transparent p-1 text-textColor focus:outline-none"
+                    value={input}
+                    onChange={e => setInput(e.target.value)}
                 />
                 <button
                     type="submit"
