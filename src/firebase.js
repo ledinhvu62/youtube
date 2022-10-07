@@ -19,23 +19,23 @@ import "firebase/compat/auth"
 //     appId: "1:779016707538:web:0618647a8bb0e22470fc0b"
 //   };
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAn5KR21i6IADlubXbyk3yYWIA_nGhDZVU",
-    authDomain: "tubeyou-92087.firebaseapp.com",
-    projectId: "tubeyou-92087",
-    storageBucket: "tubeyou-92087.appspot.com",
-    messagingSenderId: "214414617663",
-    appId: "1:214414617663:web:713f9c8d57821818c8dc8a"
-  };
-
   // const firebaseConfig = {
-  //   apiKey: "AIzaSyDOQ72rUVfOTOVWjMyNuZF_CyeT0ZezVio",
-  //   authDomain: "vietube-6eccb.firebaseapp.com",
-  //   projectId: "vietube-6eccb",
-  //   storageBucket: "vietube-6eccb.appspot.com",
-  //   messagingSenderId: "556498785161",
-  //   appId: "1:556498785161:web:b81c7d6a59a5be87404758"
+  //   apiKey: "AIzaSyAn5KR21i6IADlubXbyk3yYWIA_nGhDZVU",
+  //   authDomain: "tubeyou-92087.firebaseapp.com",
+  //   projectId: "tubeyou-92087",
+  //   storageBucket: "tubeyou-92087.appspot.com",
+  //   messagingSenderId: "214414617663",
+  //   appId: "1:214414617663:web:713f9c8d57821818c8dc8a"
   // };
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDOQ72rUVfOTOVWjMyNuZF_CyeT0ZezVio",
+    authDomain: "vietube-6eccb.firebaseapp.com",
+    projectId: "vietube-6eccb",
+    storageBucket: "vietube-6eccb.appspot.com",
+    messagingSenderId: "556498785161",
+    appId: "1:556498785161:web:b81c7d6a59a5be87404758"
+  };
 
   // const firebaseConfig = {
   //   apiKey: "AIzaSyB2C_qIgJ8pNviv2Qj-WP8rKk4yupqYroM",

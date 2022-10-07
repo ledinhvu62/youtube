@@ -5,8 +5,6 @@ import moment from 'moment'
 import numeral from 'numeral'
 
 import request from '../api'
-import { useDispatch, useSelector } from 'react-redux'
-import { getChannelDetails } from '../redux/channel/channelDetailsSlice'
 
 const VideoHorizontal = ({ video, searchScreen }) => {
     const {
@@ -58,15 +56,24 @@ const VideoHorizontal = ({ video, searchScreen }) => {
 
     //
 
-    const {
-        statistics: channelStatistics,
-    } = useSelector(state => state.channelDetails.channel)
-
-    const dispatch = useDispatch()
+    const [subscriberCount, setSubscriberCount] = useState(null)
+    const [videoCount, setVideoCount] = useState(null)
 
     useEffect(() => {
-        dispatch(getChannelDetails(_channelId))
-    }, [dispatch, _channelId])
+        const getChannelDetails = async () => {
+           const {
+              data: { items },
+           } = await request('/channels', {
+              params: {
+                 part: 'statistics',
+                 id: _channelId,
+              },
+           })
+           setSubscriberCount(items[0].statistics?.subscriberCount)
+           setVideoCount(items[0].statistics?.videoCount)
+        }
+        getChannelDetails()
+    }, [_channelId])
 
     return (
         <div
@@ -100,8 +107,8 @@ const VideoHorizontal = ({ video, searchScreen }) => {
                         </>
                     ) : (
                         <div className="flex items-center text-xs mb-2">
-                            <span>{numeral(channelStatistics?.subscriberCount).format('0.a')} subscribers</span>
-                            <span className="ml-3">{channelStatistics?.videoCount} videos</span>
+                            <span>{numeral(subscriberCount).format('0.a')} subscribers</span>
+                            <span className="ml-3">{videoCount} videos</span>
                         </div>
                     )
                 }
