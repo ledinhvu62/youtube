@@ -20,10 +20,6 @@ const WatchScreen = () => {
         dispatch(getRelatedVideos(id))
     }, [dispatch, id])
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [video])
-
     return (
         <div className="grid grid-cols-3 gap-6 px-16 py-6">
             <div className="col-span-2">

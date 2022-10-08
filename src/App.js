@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom"
+import { Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom"
 import { useSelector } from 'react-redux'
 import './index.css'
 
@@ -39,6 +39,12 @@ const App = () => {
             navigate('/auth')
         }
     }, [loading, accessToken, navigate])
+
+    const { pathname, search } = useLocation()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [pathname, search])
 
     return (
         <Routes>

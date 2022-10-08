@@ -17,10 +17,6 @@ const SearchScreen = () => {
         setSearchParams({ search_query: keyword })
     }, [dispatch, setSearchParams]) // eslint-disable-line
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [videos])
-
     return (
         <div className="p-16">
             {

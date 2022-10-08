@@ -6,7 +6,7 @@ import { RiThumbUpLine, RiThumbDownLine } from 'react-icons/ri'
 import { MdContentCut, MdPlaylistAdd } from 'react-icons/md'
 import { IoIosShareAlt } from 'react-icons/io'
 import { HiDownload } from 'react-icons/hi'
-// import ShowMoreText from 'react-show-more-text'
+import ShowMoreText from 'react-show-more-text'
 
 import { getChannelDetails, checkSubscriptionStatus } from '../redux/channel/channelDetailsSlice'
 
@@ -56,16 +56,16 @@ const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
                         <span className="video-option-text">Save</span>
                     </div>
                 </div>
-                <div className="format-string whitespace-pre-line font-normal my-2">
-                    {/* <ShowMoreText
-                    lines={3}
-                    more="SHOW MORE"
-                    less="SHOW LESS"
-                    anchorClass="showMoreText"
-                    expanded={false}
-                > */}
-                    {description}
-                    {/* </ShowMoreText> */}
+                <div className="whitespace-pre-line font-normal my-2">
+                    <ShowMoreText
+                        lines={2}
+                        more="Show more"
+                        less="Show less"
+                        anchorClass="font-medium"
+                        expanded={false}
+                    >
+                        {description}
+                    </ShowMoreText>
                 </div>
             </div>
             <div className="flex justify-between items-center my-2 p-2 border border-solid border-borderColor rounded-sm">

@@ -1,14 +1,14 @@
 import firebase from 'firebase/compat/app';
 import "firebase/compat/auth"
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDGe80ek36c7vAjDD9rX9utJZhNMpNW5nk",
-  authDomain: "clone-aa236.firebaseapp.com",
-  projectId: "clone-aa236",
-  storageBucket: "clone-aa236.appspot.com",
-  messagingSenderId: "995201836155",
-  appId: "1:995201836155:web:74f8867a18568059fdaede"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDGe80ek36c7vAjDD9rX9utJZhNMpNW5nk",
+//   authDomain: "clone-aa236.firebaseapp.com",
+//   projectId: "clone-aa236",
+//   storageBucket: "clone-aa236.appspot.com",
+//   messagingSenderId: "995201836155",
+//   appId: "1:995201836155:web:74f8867a18568059fdaede"
+// };
 
 // const firebaseConfig = {
 //     apiKey: "AIzaSyAqVe1WifyviIQ72ndJjcKtTj3mwvgfIwk",
@@ -63,6 +63,15 @@ const firebaseConfig = {
   //   messagingSenderId: "127100454102",
   //   appId: "1:127100454102:web:54aac2ba3e6be1e9307577"
   // };
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAhMFOrikT_c9th6BjD5atdvd7Ibzm4yzs",
+    authDomain: "my-347ec.firebaseapp.com",
+    projectId: "my-347ec",
+    storageBucket: "my-347ec.appspot.com",
+    messagingSenderId: "1034959957127",
+    appId: "1:1034959957127:web:2d5cf103ba0969fa0e9c22"
+  };
   
 
 firebase.initializeApp(firebaseConfig)
