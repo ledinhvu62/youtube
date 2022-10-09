@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AiFillEye } from 'react-icons/ai'
 import moment from 'moment'
 import numeral from 'numeral'
 
@@ -73,6 +72,11 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
             : navigate(`/channel/${_channelId}`)
     }
 
+    const handleChannelClick = e => {
+        e.stopPropagation()
+        navigate(`/channel/${_channelId}`)
+    }
+
     return (
         <div
             className={`grid grid-cols-12 gap-2 ${searchScreen || subScreen ? 'mb-5' : 'mb-3'} cursor-pointer`}
@@ -95,11 +99,14 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
                 {
                     isVideo ? (
                         <>
-                            <h4 className={`text-xs ${searchScreen ? 'my-2' : 'my-0.5'}`}>{channelTitle}</h4>
+                            <h4
+                                className={`text-xs ${searchScreen ? 'my-2' : 'my-0.5'}`}
+                                onClick={e => handleChannelClick(e)}
+                            >
+                                {channelTitle}
+                            </h4>
                             <div className="flex items-center text-xs mb-2">
-                                <span className="flex items-center">
-                                    <AiFillEye className="mr-1" /> {numeral(views).format('0.a')} views
-                                </span>
+                                <span className="flex items-center">{numeral(views).format('0.a')} views</span>
                                 <span className="ml-3">{moment(publishedAt).fromNow()}</span>
                             </div>
                         </>

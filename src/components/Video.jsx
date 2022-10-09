@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AiFillEye } from 'react-icons/ai'
 import moment from 'moment'
 import numeral from 'numeral'
 
 import request from '../api'
 
-const Video = ({ video }) => {
+const Video = ({ video, channelScreen }) => {
     const {
         id,
         snippet: {
@@ -65,6 +64,11 @@ const Video = ({ video }) => {
         navigate(`/watch/${_videoId}`)
     }
 
+    const handleChannelClick = e => {
+        e.stopPropagation()
+        navigate(`/channel/${channelId}`)
+    }
+
     return (
         <div
             className="mb-4 p-3 cursor-pointer"
@@ -79,18 +83,30 @@ const Video = ({ video }) => {
                 <span className="absolute bottom-1 right-1 p-0.5 font-medium text-xs text-white bg-[#080808ec] rounded">{_duration}</span>
             </div>
             <div className="flex items-start">
-                <img
-                    src={channelIcon?.url}
-                    alt=""
-                    className="w-9 h-9 rounded-full mr-2"
-                />
+                {
+                    channelScreen || (
+                        <img
+                            src={channelIcon?.url}
+                            alt=""
+                            className="w-9 h-9 rounded-full mr-2"
+                            onClick={e => handleChannelClick(e)}
+                        />
+                    )
+                }
                 <div>
                     <h4 className="format-string min-h-[40px] font-medium text-[15px]">{title}</h4>
-                    <span className="my-px text-textColor text-[13px]">{channelTitle}</span>
+                    {
+                        channelScreen || (
+                            <span
+                                className="my-px text-textColor text-[13px]"
+                                onClick={e => handleChannelClick(e)}
+                            >
+                                {channelTitle}
+                            </span>
+                        )
+                    }
                     <div className="flex items-center text-textColor text-[13px]">
-                        <span className="flex items-center">
-                            <AiFillEye className="mr-1" /> {numeral(views).format('0.a')} views
-                        </span>
+                        <span className="flex items-center">{numeral(views).format('0.a')} views</span>
                         <span className="ml-3">{moment(publishedAt).fromNow()}</span>
                     </div>
                 </div>

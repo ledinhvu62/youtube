@@ -9,6 +9,7 @@ import relatedVideoSlice from './videos/relatedVideoSlice'
 import searchedVideosSlice from './videos/searchedVideosSlice'
 import keywordSearchSlice from './search/keywordSearchSlice'
 import subscriptionsChannelSlice from './videos/subscriptionsChannelSlice'
+import channelVideosSlice from './videos/channelVideosSlice'
 
 export const store = configureStore({
     reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
         relatedVideo: relatedVideoSlice,
         searchedVideos: searchedVideosSlice,
         keywordSearch: keywordSearchSlice,
-        subscriptionsChannel: subscriptionsChannelSlice
+        subscriptionsChannel: subscriptionsChannelSlice,
+        channelVideos: channelVideosSlice
     }
 })

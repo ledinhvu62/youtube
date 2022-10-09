@@ -11,6 +11,7 @@ import LoginScreen from "./screens/LoginScreen";
 import WatchScreen from "./screens/WatchScreen";
 import SearchScreen from "./screens/SearchScreen";
 import SubscriptionsScreen from "./screens/SubscriptionsScreen";
+import ChannelScreen from "./screens/ChannelScreen";
 
 const Layout = ({ children }) => {
     const [showSidebar, setShowSidebar] = useState(false)
@@ -68,6 +69,13 @@ const App = () => {
             <Route path="/watch/:id" element={
                 <Layout>
                     <WatchScreen />
+                </Layout>
+            }>
+            </Route>
+
+            <Route path="/channel/:channelId" element={
+                <Layout>
+                    <ChannelScreen />
                 </Layout>
             }>
             </Route>

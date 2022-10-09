@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import numeral from 'numeral'
 import moment from 'moment'
 import { RiThumbUpLine, RiThumbDownLine } from 'react-icons/ri'
@@ -16,11 +17,16 @@ const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
     const { snippet: channelSnippet, statistics: channelStatistics } = useSelector(state => state.channelDetails.channel)
     const subscriptionStatus = useSelector(state => state.channelDetails.subscriptionStatus)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(getChannelDetails(channelId))
         dispatch(checkSubscriptionStatus(channelId))
     }, [dispatch, channelId])
+
+    const handleChannelClick = () => {
+        navigate(`/channel/${channelId}`)
+    }
 
     return (
         <div className="pb-2">
@@ -74,13 +80,19 @@ const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
                         src={channelSnippet?.thumbnails?.default?.url}
                         alt=""
                         className="rounded-full mr-3 w-12 h-12 cursor-pointer"
+                        onClick={handleChannelClick}
                     />
                     <div className="flex flex-col">
-                        <span className="font-medium cursor-pointer">{channelTitle}</span>
+                        <span
+                            className="font-medium cursor-pointer"
+                            onClick={handleChannelClick}
+                        >
+                            {channelTitle}
+                        </span>
                         <span className="text-sm text-textColor">{numeral(channelStatistics?.subscriberCount).format('0.a')} subscribers</span>
                     </div>
                 </div>
-                <button className={`border-0 p-2 m-2 ${subscriptionStatus ? 'bg-[gray]' : 'bg-red-700'} text-white rounded-sm tracking-[0.5px] uppercase focus:border-0 focus:outline-none`}>
+                <button className={`border-0 p-2 m-2 ${subscriptionStatus ? 'bg-[#0000000d] text-textColor' : 'bg-red-700 text-white'} rounded-sm tracking-[0.5px] uppercase focus:border-0 focus:outline-none`}>
                     {subscriptionStatus ? 'Subscribed' : 'Subscribe'}
                 </button>
             </div>

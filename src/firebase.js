@@ -28,14 +28,14 @@ import "firebase/compat/auth"
 //     appId: "1:779016707538:web:0618647a8bb0e22470fc0b"
 //   };
 
-  // const firebaseConfig = {
-  //   apiKey: "AIzaSyAn5KR21i6IADlubXbyk3yYWIA_nGhDZVU",
-  //   authDomain: "tubeyou-92087.firebaseapp.com",
-  //   projectId: "tubeyou-92087",
-  //   storageBucket: "tubeyou-92087.appspot.com",
-  //   messagingSenderId: "214414617663",
-  //   appId: "1:214414617663:web:713f9c8d57821818c8dc8a"
-  // };
+  const firebaseConfig = {
+    apiKey: "AIzaSyAn5KR21i6IADlubXbyk3yYWIA_nGhDZVU",
+    authDomain: "tubeyou-92087.firebaseapp.com",
+    projectId: "tubeyou-92087",
+    storageBucket: "tubeyou-92087.appspot.com",
+    messagingSenderId: "214414617663",
+    appId: "1:214414617663:web:713f9c8d57821818c8dc8a"
+  };
 
   // const firebaseConfig = {
   //   apiKey: "AIzaSyDOQ72rUVfOTOVWjMyNuZF_CyeT0ZezVio",
@@ -64,14 +64,14 @@ import "firebase/compat/auth"
   //   appId: "1:127100454102:web:54aac2ba3e6be1e9307577"
   // };
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAhMFOrikT_c9th6BjD5atdvd7Ibzm4yzs",
-    authDomain: "my-347ec.firebaseapp.com",
-    projectId: "my-347ec",
-    storageBucket: "my-347ec.appspot.com",
-    messagingSenderId: "1034959957127",
-    appId: "1:1034959957127:web:2d5cf103ba0969fa0e9c22"
-  };
+  // const firebaseConfig = {
+  //   apiKey: "AIzaSyAhMFOrikT_c9th6BjD5atdvd7Ibzm4yzs",
+  //   authDomain: "my-347ec.firebaseapp.com",
+  //   projectId: "my-347ec",
+  //   storageBucket: "my-347ec.appspot.com",
+  //   messagingSenderId: "1034959957127",
+  //   appId: "1:1034959957127:web:2d5cf103ba0969fa0e9c22"
+  // };
   
 
 firebase.initializeApp(firebaseConfig)

@@ -32,7 +32,7 @@ const Header = ({ toggleSidebar }) => {
             <img
                 src={logo}
                 alt="logo"
-                className="w-20 h-20 object-contain hidden sm:block"
+                className="w-20 h-20 object-contain hidden cursor-pointer sm:block"
             />
 
             <form
@@ -55,12 +55,18 @@ const Header = ({ toggleSidebar }) => {
             </form>
 
             <div className="flex [&>*:not(img)]:hidden flex-[0.15] justify-around items-center sm:[&>*:not(img)]:block">
-                <RiVideoAddLine size={23} />
-                <MdOutlineNotificationsNone size={23} />
+                <RiVideoAddLine
+                    size={23}
+                    className="cursor-pointer"
+                />
+                <MdOutlineNotificationsNone
+                    size={23}
+                    className="cursor-pointer"
+                />
                 <img
                     src={user?.photoURL}
                     alt="avatar"
-                    className="rounded-full w-10 object-contain ml-1"
+                    className="rounded-full w-10 object-contain ml-1 cursor-pointer"
                 />
             </div>
         </div>

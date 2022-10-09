@@ -37,13 +37,13 @@ const CategoriesBar = () => {
     }
 
     return (
-        <div className="no-scrollbar p-3 text-sm flex overflow-scroll fixed top-[10vh] bg-white z-[999] border-b border-solid border-borderColor">
+        <div className="no-scrollbar px-5 py-3 text-sm flex overflow-scroll sticky top-[10vh] bg-white z-[999] border-b border-solid border-borderColor">
             {
                 keywords.map((keyword, index) => (
                     <span
                         key={index}
                         onClick={() => handleClick(keyword)}
-                        className={`mr-4 p-2 whitespace-nowrap border border-solid border-borderColor rounded-full cursor-pointer ${activeElement === keyword ? 'text-white bg-black' : 'bg-[#0000000d] hover:bg-[#0000001a]'}`}
+                        className={`mr-4 px-3 py-1 whitespace-nowrap border border-solid border-borderColor rounded-full cursor-pointer ${activeElement === keyword ? 'text-white bg-black' : 'bg-[#0000000d] hover:bg-[#0000001a]'}`}
                     >
                         {keyword}
                     </span>
