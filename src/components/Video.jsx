@@ -94,11 +94,11 @@ const Video = ({ video, channelScreen }) => {
                     )
                 }
                 <div>
-                    <h4 className="format-string min-h-[40px] font-medium text-[15px]">{title}</h4>
+                    <h4 className="line-clamp-2 min-h-[40px] font-medium text-[15px]">{title}</h4>
                     {
                         channelScreen || (
                             <span
-                                className="my-px text-textColor text-[13px]"
+                                className="line-clamp-1 my-px text-textColor text-[13px]"
                                 onClick={e => handleChannelClick(e)}
                             >
                                 {channelTitle}

@@ -95,12 +95,12 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
                 }
             </div>
             <div className={`${searchScreen || subScreen ? 'col-span-8' : 'col-span-7'} p-0 ${isVideo ? '' : 'flex flex-col justify-center'}`}>
-                <h3 className={`format-string font-medium ${searchScreen || subScreen ? 'text-lg' : 'text-sm'}`}>{title}</h3>
+                <h3 className={`line-clamp-2 font-medium ${searchScreen || subScreen ? 'text-lg' : 'text-sm'}`}>{title}</h3>
                 {
                     isVideo ? (
                         <>
                             <h4
-                                className={`text-xs ${searchScreen ? 'my-2' : 'my-0.5'}`}
+                                className={`line-clamp-1 text-xs ${searchScreen ? 'my-2' : 'my-0.5'}`}
                                 onClick={e => handleChannelClick(e)}
                             >
                                 {channelTitle}
