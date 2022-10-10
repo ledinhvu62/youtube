@@ -15,7 +15,7 @@ const SubscriptionsScreen = () => {
     const { videos } = useSelector(state => state.subscriptionsChannel)
 
     return (
-        <div className="px-24 py-6">
+        <div className="px-6 py-6 sm:px-24">
             {
                 videos?.map(video => (
                     <VideoHorizontal video={video} key={video.id} subScreen />

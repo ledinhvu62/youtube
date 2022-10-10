@@ -17,7 +17,7 @@ const Sidebar = ({ showSidebar, toggleSidebar }) => {
 
     return (
         <nav
-            className={`border-solid border-r-2 flex flex-col w-24 h-[90vh] fixed top-[10vh] left-0 z-[999] bg-white ${showSidebar ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'} transition-transform duration-200 ease-in sm:sticky lg:w-64`}
+            className={`border-solid border-r-2 flex flex-col w-24 h-[90vh] fixed top-[10vh] left-0 z-[999] bg-white ${showSidebar ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'} transition-transform duration-200 ease-in sm:sticky xl:w-64`}
             onClick={() => toggleSidebar()}
         >
             <li className="sidebar-item">

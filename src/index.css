@@ -20,7 +20,7 @@ code {
 
 @layer components {
     .sidebar-item, .sidebar-item-link {
-        @apply flex items-center cursor-pointer h-full justify-center lg:justify-start
+        @apply flex items-center cursor-pointer h-full justify-center xl:justify-start
     }
 
     .sidebar-item-link {
@@ -32,11 +32,11 @@ code {
     }
 
     .sidebar-text {
-        @apply ml-4 text-sm tracking-[0.4px] hidden lg:block
+        @apply ml-4 text-sm tracking-[0.4px] hidden xl:block
     }
 
     .video-option {
-        @apply flex cursor-pointer mr-10
+        @apply flex cursor-pointer mr-10 my-3
     }
 
     .video-option-text {

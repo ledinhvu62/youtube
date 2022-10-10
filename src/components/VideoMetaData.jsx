@@ -36,7 +36,18 @@ const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
                     <span className="mr-3">{numeral(viewCount).format('0.a')} views</span>
                     <span>{moment(publishedAt).fromNow()}</span>
                 </div>
-                <div className="flex">
+                <div className="whitespace-pre-line font-normal my-2">
+                    <ShowMoreText
+                        lines={2}
+                        more="Show more"
+                        less="Show less"
+                        anchorClass="font-medium"
+                        expanded={false}
+                    >
+                        {description}
+                    </ShowMoreText>
+                </div>
+                <div className="flex flex-wrap">
                     <div className="video-option">
                         <RiThumbUpLine size={26} />
                         <span className="video-option-text">{numeral(likeCount).format('0.a')}</span>
@@ -62,17 +73,6 @@ const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
                         <span className="video-option-text">Save</span>
                     </div>
                 </div>
-                <div className="whitespace-pre-line font-normal my-2">
-                    <ShowMoreText
-                        lines={2}
-                        more="Show more"
-                        less="Show less"
-                        anchorClass="font-medium"
-                        expanded={false}
-                    >
-                        {description}
-                    </ShowMoreText>
-                </div>
             </div>
             <div className="flex justify-between items-center my-2 p-2 border border-solid border-borderColor rounded-sm">
                 <div className="flex">
@@ -92,7 +92,7 @@ const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
                         <span className="text-sm text-textColor">{numeral(channelStatistics?.subscriberCount).format('0.a')} subscribers</span>
                     </div>
                 </div>
-                <button className={`border-0 p-2 m-2 ${subscriptionStatus ? 'bg-[#0000000d] text-textColor' : 'bg-red-700 text-white'} rounded-sm tracking-[0.5px] uppercase focus:border-0 focus:outline-none`}>
+                <button className={`border-0 p-2 ${subscriptionStatus ? 'bg-[#0000000d] text-textColor' : 'bg-red-700 text-white'} rounded-sm tracking-[0.5px] uppercase focus:border-0 focus:outline-none`}>
                     {subscriptionStatus ? 'Subscribed' : 'Subscribe'}
                 </button>
             </div>

@@ -37,7 +37,7 @@ const CategoriesBar = () => {
     }
 
     return (
-        <div className="no-scrollbar px-5 py-3 text-sm flex overflow-scroll sticky top-[10vh] bg-white z-[999] border-b border-solid border-borderColor">
+        <div className="no-scrollbar px-5 py-3 text-sm flex overflow-scroll sticky top-[10vh] bg-white z-[998] border-b border-solid border-borderColor">
             {
                 keywords.map((keyword, index) => (
                     <span

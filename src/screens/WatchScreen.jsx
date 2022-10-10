@@ -21,9 +21,9 @@ const WatchScreen = () => {
     }, [dispatch, id])
 
     return (
-        <div className="grid grid-cols-3 gap-6 px-16 py-6">
-            <div className="col-span-2">
-                <div className="h-[60vh] w-full mb-8">
+        <div className="grid grid-cols-1 gap-6 px-16 py-6 lg:grid-cols-3">
+            <div className="lg:col-span-2">
+                <div className="h-[40vh] w-full mb-8 lg:h-[60vh]">
                     <iframe
                         src={`https://www.youtube.com/embed/${id}`}
                         frameBorder="0"

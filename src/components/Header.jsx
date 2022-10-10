@@ -54,7 +54,7 @@ const Header = ({ toggleSidebar }) => {
                 </button>
             </form>
 
-            <div className="flex [&>*:not(img)]:hidden flex-[0.15] justify-around items-center sm:[&>*:not(img)]:block">
+            <div className="flex [&>*:not(img)]:hidden flex-[0.2] justify-around items-center sm:[&>*:not(img)]:block">
                 <RiVideoAddLine
                     size={23}
                     className="cursor-pointer"

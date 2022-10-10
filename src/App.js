@@ -21,9 +21,9 @@ const Layout = ({ children }) => {
     return (
         <>
             <Header toggleSidebar={toggleSidebar} />
-            <div className="flex mt-[10vh]">
+            <div className="flex mt-[10vh] bg-[#0000000d]">
                 <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
-                <div className="container mx-auto bg-[#0000000d]">
+                <div className="container mx-auto">
                     {children}
                 </div>
             </div>

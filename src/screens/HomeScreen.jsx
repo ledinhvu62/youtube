@@ -34,10 +34,10 @@ const HomeScreen = () => {
                 next={fetchData}
                 hasMore={true}
                 loader={
-                    <div className='spinner-border text-danger d-block mx-auto'></div>
+                    <div className='spinner-border text-danger block mx-auto'></div>
                 }
             >
-                <div className="grid grid-cols-3 m-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 m-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {
                         videos.map((video, index) => (
                             // Fix bug
