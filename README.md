@@ -1,3 +1,11 @@
+# Descriptions
+
+A related website with Youtube, authenticated by Google.\
+Filter videos by category, view video, comment, search, view subscribed channels, view channel details.\
+Use Youtube Data API.
+
+Link: [https://youtube-ledinhvu.vercel.app/](https://youtube-ledinhvu.vercel.app/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
